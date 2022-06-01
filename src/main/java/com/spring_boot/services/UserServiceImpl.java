@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Optional<User> getUserById(int id) {
         User users = null;
